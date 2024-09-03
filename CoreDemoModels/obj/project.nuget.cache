@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TP0++PadnBTWTdfPxze6bAw938YnbqWw7ZK9XqbiZgemljygkPj6hBFlsthDs0ZLcK7ffRS6CfMCg92ArXDk9w==",
+  "dgSpecHash": "YJRtYQntP8nTH23SOI2OvItkVqS8v7d8Uc++HhdrmeRdnDCvoExtOKJ+Qfsl7QyebywjvsOvawBg6biHqDlYFw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\luvpreet.singh\\source\\repos\\CoreDemo\\CoreDemoModels\\CoreDemoModels.csproj",
+  "projectFilePath": "C:\\Users\\luvpreet.singh\\Source\\Repos\\CRUD-demo\\CoreDemoModels\\CoreDemoModels.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\luvpreet.singh\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\luvpreet.singh\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
