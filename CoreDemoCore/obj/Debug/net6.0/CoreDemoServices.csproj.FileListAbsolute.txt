@@ -1,0 +1,17 @@
+C:\Users\luvpreet.singh\source\repos\CoreDemo\CoreDemoCore\bin\Debug\net6.0\CoreDemoServices.deps.json
+C:\Users\luvpreet.singh\source\repos\CoreDemo\CoreDemoCore\bin\Debug\net6.0\CoreDemoServices.dll
+C:\Users\luvpreet.singh\source\repos\CoreDemo\CoreDemoCore\bin\Debug\net6.0\CoreDemoServices.pdb
+C:\Users\luvpreet.singh\source\repos\CoreDemo\CoreDemoCore\bin\Debug\net6.0\CoreDemoModels.dll
+C:\Users\luvpreet.singh\source\repos\CoreDemo\CoreDemoCore\bin\Debug\net6.0\CoreDemoModels.pdb
+C:\Users\luvpreet.singh\source\repos\CoreDemo\CoreDemoCore\obj\Debug\net6.0\CoreDemoServices.csproj.AssemblyReference.cache
+C:\Users\luvpreet.singh\source\repos\CoreDemo\CoreDemoCore\obj\Debug\net6.0\CoreDemoServices.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\luvpreet.singh\source\repos\CoreDemo\CoreDemoCore\obj\Debug\net6.0\CoreDemoServices.AssemblyInfoInputs.cache
+C:\Users\luvpreet.singh\source\repos\CoreDemo\CoreDemoCore\obj\Debug\net6.0\CoreDemoServices.AssemblyInfo.cs
+C:\Users\luvpreet.singh\source\repos\CoreDemo\CoreDemoCore\obj\Debug\net6.0\CoreDemoServices.csproj.CoreCompileInputs.cache
+C:\Users\luvpreet.singh\source\repos\CoreDemo\CoreDemoCore\obj\Debug\net6.0\CoreDemoServices.csproj.CopyComplete
+C:\Users\luvpreet.singh\source\repos\CoreDemo\CoreDemoCore\obj\Debug\net6.0\CoreDemoServices.dll
+C:\Users\luvpreet.singh\source\repos\CoreDemo\CoreDemoCore\obj\Debug\net6.0\refint\CoreDemoServices.dll
+C:\Users\luvpreet.singh\source\repos\CoreDemo\CoreDemoCore\obj\Debug\net6.0\CoreDemoServices.pdb
+C:\Users\luvpreet.singh\source\repos\CoreDemo\CoreDemoCore\obj\Debug\net6.0\ref\CoreDemoServices.dll
+C:\Users\luvpreet.singh\source\repos\CoreDemo\CoreDemoCore\bin\Debug\net6.0\CoreDemoRepositories.dll
+C:\Users\luvpreet.singh\source\repos\CoreDemo\CoreDemoCore\bin\Debug\net6.0\CoreDemoRepositories.pdb

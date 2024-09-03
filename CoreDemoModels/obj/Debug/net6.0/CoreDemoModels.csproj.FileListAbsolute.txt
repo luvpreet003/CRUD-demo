@@ -1,0 +1,12 @@
+C:\Users\luvpreet.singh\source\repos\CoreDemo\CoreDemoModels\bin\Debug\net6.0\CoreDemoModels.deps.json
+C:\Users\luvpreet.singh\source\repos\CoreDemo\CoreDemoModels\bin\Debug\net6.0\CoreDemoModels.dll
+C:\Users\luvpreet.singh\source\repos\CoreDemo\CoreDemoModels\bin\Debug\net6.0\CoreDemoModels.pdb
+C:\Users\luvpreet.singh\source\repos\CoreDemo\CoreDemoModels\obj\Debug\net6.0\CoreDemoModels.csproj.AssemblyReference.cache
+C:\Users\luvpreet.singh\source\repos\CoreDemo\CoreDemoModels\obj\Debug\net6.0\CoreDemoModels.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\luvpreet.singh\source\repos\CoreDemo\CoreDemoModels\obj\Debug\net6.0\CoreDemoModels.AssemblyInfoInputs.cache
+C:\Users\luvpreet.singh\source\repos\CoreDemo\CoreDemoModels\obj\Debug\net6.0\CoreDemoModels.AssemblyInfo.cs
+C:\Users\luvpreet.singh\source\repos\CoreDemo\CoreDemoModels\obj\Debug\net6.0\CoreDemoModels.csproj.CoreCompileInputs.cache
+C:\Users\luvpreet.singh\source\repos\CoreDemo\CoreDemoModels\obj\Debug\net6.0\CoreDemoModels.dll
+C:\Users\luvpreet.singh\source\repos\CoreDemo\CoreDemoModels\obj\Debug\net6.0\refint\CoreDemoModels.dll
+C:\Users\luvpreet.singh\source\repos\CoreDemo\CoreDemoModels\obj\Debug\net6.0\CoreDemoModels.pdb
+C:\Users\luvpreet.singh\source\repos\CoreDemo\CoreDemoModels\obj\Debug\net6.0\ref\CoreDemoModels.dll
