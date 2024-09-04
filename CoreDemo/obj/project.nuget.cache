@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dI/My4l8gTwuxP7sBnVvY6bDdhplY/qAy4AI6HrSDf9Jq9b85g5ZtUV2qcfiyammDOlKUjWVI+PCALLJT22qDQ==",
+  "dgSpecHash": "jDERtefvbkUZZnWby2malQO865DlTKB7CpcwgkydlIzAKdTdAZ9/6vSWHYubUWGq0LpiRM7qq1PmyULK8e3EfQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\luvpreet.singh\\Source\\Repos\\CRUD-demo\\CoreDemo\\CoreDemoAPI.csproj",
+  "projectFilePath": "C:\\Users\\luvpreet.singh\\source\\repos\\CRUD-demo\\CoreDemo\\CoreDemoAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\luvpreet.singh\\.nuget\\packages\\automapper\\7.0.1\\automapper.7.0.1.nupkg.sha512",
     "C:\\Users\\luvpreet.singh\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
