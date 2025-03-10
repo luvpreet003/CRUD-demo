@@ -6,7 +6,12 @@ namespace CoreDemoRepositories.Student
 {
     public class StudentRepository : IStudentRepository
     {
-        readonly CoreDemoModels.ApiDbContext db = new();
+        private readonly CoreDemoModels.ApiDbContext _db;
+
+        public StudentRepository(CoreDemoModels.ApiDbContext db)
+        {
+            _db = db;
+        }
 
         public string AddStudent(Students student)
         {
@@ -17,10 +22,10 @@ namespace CoreDemoRepositories.Student
             }
 
             //check for a valid school
-            var schoolCheck = db.Schools.AsNoTracking().Any(x => x.Id == student.SchoolID);
+            var schoolCheck = _db.Schools.AsNoTracking().Any(x => x.Id == student.SchoolID);
             if (schoolCheck)
             {
-                var studentCheck = db.Students.AsNoTracking().Any(s => s.StudentId == student.StudentId);
+                var studentCheck = _db.Students.AsNoTracking().Any(s => s.StudentId == student.StudentId);
                 if (studentCheck)
                 {
                     return ("Student with same Id already exists");
@@ -28,8 +33,8 @@ namespace CoreDemoRepositories.Student
                 else
                 {
                     var result = StudentMapper.MapToDb(student);
-                    db.Students.Add(result);
-                    db.SaveChanges();
+                    _db.Students.Add(result);
+                    _db.SaveChanges();
                     return ("Student Added Successfully!");
                 }              
             }
@@ -42,11 +47,11 @@ namespace CoreDemoRepositories.Student
         public string DeleteStudent(int id)
         {
             //fetch the student
-            var student = db.Students.FirstOrDefault(x => x.StudentId == id);
+            var student = _db.Students.FirstOrDefault(x => x.StudentId == id);
             if(student != null)
             {
-                db.Students.Remove(student);
-                db.SaveChanges();
+                _db.Students.Remove(student);
+                _db.SaveChanges();
                 return ("Student Deleted Successfully!");
             }
             else
@@ -58,10 +63,10 @@ namespace CoreDemoRepositories.Student
         public Students GetStudentById(int id)
         {
             //fetch the student
-            var student = db.Students.FirstOrDefault(x => x.StudentId == id);
+            var student = _db.Students.FirstOrDefault(x => x.StudentId == id);
             if(student != null)
             {
-                var school = db.Schools.AsNoTracking().FirstOrDefault(s => s.Id == student.SchoolID);
+                var school = _db.Schools.AsNoTracking().FirstOrDefault(s => s.Id == student.SchoolID);
                 student.School = school;
                 return StudentMapper.MapToCore(student);
             }
@@ -74,8 +79,8 @@ namespace CoreDemoRepositories.Student
         public List<Students> GetStudents()
         {
             var students = new List<Students>();
-            var schools = db.Schools.AsNoTracking().ToList();
-            foreach(CoreDemoModels.StudentsDTO student in db.Students)
+            var schools = _db.Schools.AsNoTracking().ToList();
+            foreach(CoreDemoModels.StudentsDTO student in _db.Students)
             {
                 student.School = schools.FirstOrDefault(x => x?.Id == student?.SchoolID);
                 students.Add(StudentMapper.MapToCore(student));
@@ -86,19 +91,19 @@ namespace CoreDemoRepositories.Student
         public string UpdateStudent(Students student)
         {
             //fetch the student
-            var obj = db.Students.FirstOrDefault(s => s.StudentId == student.StudentId);
+            var obj = _db.Students.FirstOrDefault(s => s.StudentId == student.StudentId);
             if(obj != null)
             {
                 //check for valid school
-                var schoolCheck = db.Schools.Any(x => x.Id == student.SchoolID);
+                var schoolCheck = _db.Schools.Any(x => x.Id == student.SchoolID);
                 if (schoolCheck)
                 {
                     obj.SchoolID = student.SchoolID;
                     obj.Address = student.Address;
                     obj.Name = student.Name;
                     obj.StudentId = student.StudentId;
-                    db.Students.Update(obj);
-                    db.SaveChanges();
+                    _db.Students.Update(obj);
+                    _db.SaveChanges();
                     return ("Student update successfully!");
                 }
                 else

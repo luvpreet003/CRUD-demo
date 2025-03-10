@@ -131,3 +131,8 @@ C:\Users\luvpreet.singh\Source\Repos\CRUD-demo\CoreDemo\obj\Debug\net6.0\refint\
 C:\Users\luvpreet.singh\Source\Repos\CRUD-demo\CoreDemo\obj\Debug\net6.0\CoreDemoAPI.pdb
 C:\Users\luvpreet.singh\Source\Repos\CRUD-demo\CoreDemo\obj\Debug\net6.0\CoreDemoAPI.genruntimeconfig.cache
 C:\Users\luvpreet.singh\Source\Repos\CRUD-demo\CoreDemo\obj\Debug\net6.0\ref\CoreDemoAPI.dll
+C:\Users\luvpreet.singh\source\repos\CRUD-demo\CoreDemo\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\luvpreet.singh\source\repos\CRUD-demo\CoreDemo\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\luvpreet.singh\source\repos\CRUD-demo\CoreDemo\bin\Debug\net6.0\Microsoft.Bcl.Memory.dll
+C:\Users\luvpreet.singh\source\repos\CRUD-demo\CoreDemo\bin\Debug\net6.0\Microsoft.Bcl.TimeProvider.dll
+C:\Users\luvpreet.singh\source\repos\CRUD-demo\CoreDemo\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll

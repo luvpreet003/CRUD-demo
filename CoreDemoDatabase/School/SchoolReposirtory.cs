@@ -7,18 +7,22 @@ namespace CoreDemoRepositories.SchoolRepository
 {
     public class SchoolReposirtory : ISchoolRepository
     {
-        readonly ApiDbContext db = new();
+        private readonly ApiDbContext _db;
 
+        public SchoolReposirtory(ApiDbContext db)
+        {
+            _db = db;
+        }
         public string AddSchool(CoreDemoCore.Domain.Schools school)
         {
             if (school.Id != 0)
             {
-                var existingRecord = db.Schools.FirstOrDefault(x => x.Id == school.Id);
+                var existingRecord = _db.Schools.FirstOrDefault(x => x.Id == school.Id);
                 if(existingRecord == null)
                 {
                     var result = SchoolMapper.MapToDB(school);
-                    db.Schools.Add(result);
-                    db.SaveChanges();
+                    _db.Schools.Add(result);
+                    _db.SaveChanges();
                     return ("Record Added Succesfully!");
                 }
                 else
@@ -34,11 +38,11 @@ namespace CoreDemoRepositories.SchoolRepository
 
         public string DeleteSchool(int id)
         {
-            var recordToDelete = db.Schools.FirstOrDefault(x => x.Id == id);
+            var recordToDelete = _db.Schools.FirstOrDefault(x => x.Id == id);
             if (recordToDelete != null)
             {
-                db.Schools.Remove(recordToDelete);
-                db.SaveChanges();
+                _db.Schools.Remove(recordToDelete);
+                _db.SaveChanges();
                 return ("Record Deleted Successfully!");
             }
             else
@@ -49,7 +53,7 @@ namespace CoreDemoRepositories.SchoolRepository
 
         public CoreDemoCore.Domain.Schools GetSchoolById(int id)
         {
-            var recordToGet = db.Schools.FirstOrDefault(x => x.Id == id);
+            var recordToGet = _db.Schools.FirstOrDefault(x => x.Id == id);
             if(recordToGet != null)
             {
                 var result = SchoolMapper.MapToCore(recordToGet);
@@ -65,7 +69,7 @@ namespace CoreDemoRepositories.SchoolRepository
         {
             List<CoreDemoCore.Domain.Schools> coreSchools = new();
 
-            foreach (SchoolsDTO school in db.Schools){
+            foreach (SchoolsDTO school in _db.Schools){
                 var result = SchoolMapper.MapToCore(school);
                 coreSchools.Add(result);
             }
@@ -74,12 +78,12 @@ namespace CoreDemoRepositories.SchoolRepository
 
         public string UpdateSchool(CoreDemoCore.Domain.Schools school)
         {
-            var recordToUpdate = db.Schools.FirstOrDefault(x => x.Id == school.Id);
+            var recordToUpdate = _db.Schools.FirstOrDefault(x => x.Id == school.Id);
             if (recordToUpdate != null)
             {
                 recordToUpdate.Name = school.Name;
                 recordToUpdate.State = school.State;
-                db.SaveChanges();
+                _db.SaveChanges();
                 return ("Record updated Succesfully!");
             }
             else
