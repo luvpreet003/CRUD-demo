@@ -15,25 +15,10 @@ namespace CoreDemoRepositories.SchoolRepository
         }
         public string AddSchool(CoreDemoCore.Domain.Schools school)
         {
-            if (school.Id != 0)
-            {
-                var existingRecord = _db.Schools.FirstOrDefault(x => x.Id == school.Id);
-                if(existingRecord == null)
-                {
-                    var result = SchoolMapper.MapToDB(school);
-                    _db.Schools.Add(result);
-                    _db.SaveChanges();
-                    return ("Record Added Succesfully!");
-                }
-                else
-                {
-                    return ("Record with same ID already exists");
-                }
-            }
-            else
-            {
-                return ("invalid record");
-            }
+            var result = SchoolMapper.MapToDB(school);
+            _db.Schools.Add(result);
+            _db.SaveChanges();
+            return ("Record Added Succesfully!");
         }
 
         public string DeleteSchool(int id)

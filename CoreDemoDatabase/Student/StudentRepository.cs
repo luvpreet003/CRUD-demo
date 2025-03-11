@@ -15,28 +15,14 @@ namespace CoreDemoRepositories.Student
 
         public string AddStudent(Students student)
         {
-            //check for valid Id
-            if(student.StudentId == 0)
-            {
-                return ("Invalid Student Id!");
-            }
-
             //check for a valid school
             var schoolCheck = _db.Schools.AsNoTracking().Any(x => x.Id == student.SchoolID);
             if (schoolCheck)
             {
-                var studentCheck = _db.Students.AsNoTracking().Any(s => s.StudentId == student.StudentId);
-                if (studentCheck)
-                {
-                    return ("Student with same Id already exists");
-                }
-                else
-                {
-                    var result = StudentMapper.MapToDb(student);
-                    _db.Students.Add(result);
-                    _db.SaveChanges();
-                    return ("Student Added Successfully!");
-                }              
+                var result = StudentMapper.MapToDb(student);
+                _db.Students.Add(result);
+                _db.SaveChanges();
+                return ("Student Added Successfully!");
             }
             else
             {
@@ -63,11 +49,11 @@ namespace CoreDemoRepositories.Student
         public Students GetStudentById(int id)
         {
             //fetch the student
-            var student = _db.Students.FirstOrDefault(x => x.StudentId == id);
+            var student = _db.Students.Include(x => x.School).FirstOrDefault(x => x.StudentId == id);
             if(student != null)
             {
-                var school = _db.Schools.AsNoTracking().FirstOrDefault(s => s.Id == student.SchoolID);
-                student.School = school;
+                //var school = _db.Schools.AsNoTracking().FirstOrDefault(s => s.Id == student.SchoolID);
+                //student.School = school;
                 return StudentMapper.MapToCore(student);
             }
             else
@@ -79,10 +65,10 @@ namespace CoreDemoRepositories.Student
         public List<Students> GetStudents()
         {
             var students = new List<Students>();
-            var schools = _db.Schools.AsNoTracking().ToList();
-            foreach(CoreDemoModels.StudentsDTO student in _db.Students)
+            var dbStudents = _db.Students.Include(x => x.School).ToList();
+            foreach (CoreDemoModels.StudentsDTO student in dbStudents)
             {
-                student.School = schools.FirstOrDefault(x => x?.Id == student?.SchoolID);
+                //student.School = schools.FirstOrDefault(x => x.Id == student.SchoolID);
                 students.Add(StudentMapper.MapToCore(student));
             }
             return students;

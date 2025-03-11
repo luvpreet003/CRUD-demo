@@ -21,6 +21,7 @@ namespace CoreDemoAPI.Controllers
             _configuration = configuration;
         }
 
+        //noor/noor123
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
@@ -30,7 +31,7 @@ namespace CoreDemoAPI.Controllers
                 return Unauthorized("Invalid user/password");
             }
 
-            var token = _jwtService.GenerateToken(user.Id.ToString(), user.Username);
+            var token = _jwtService.GenerateToken(user.Id.ToString(), user.Username, user.Role);
             return Ok(new AuthResponse
             {
                 Token = token,
@@ -47,16 +48,24 @@ namespace CoreDemoAPI.Controllers
                 return BadRequest("A user with that userName already exists");
             }
 
+            string role = string.IsNullOrEmpty(request.Role) ? "User" : request.Role;
+            
+            if(role == "Admin" && !User.IsInRole("Admin"))
+            {
+                role = "User";
+            }
+            
             var user = new UsersDTO
             {
                 Username = request.Username,
-                Password = HashPassword(request.Password)
+                Password = HashPassword(request.Password),
+                Role = role
             };
 
             _dbContext.Users.Add(user);
             await _dbContext.SaveChangesAsync();
 
-            var token = _jwtService.GenerateToken(user.Id.ToString(), user.Username);
+            var token = _jwtService.GenerateToken(user.Id.ToString(), user.Username, user.Role);
 
             return Ok(new AuthResponse
             {

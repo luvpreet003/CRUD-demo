@@ -120,7 +120,6 @@ C:\Users\luvpreet.singh\Source\Repos\CRUD-demo\CoreDemo\obj\Debug\net6.0\CoreDem
 C:\Users\luvpreet.singh\Source\Repos\CRUD-demo\CoreDemo\obj\Debug\net6.0\CoreDemoAPI.AssemblyInfoInputs.cache
 C:\Users\luvpreet.singh\Source\Repos\CRUD-demo\CoreDemo\obj\Debug\net6.0\CoreDemoAPI.AssemblyInfo.cs
 C:\Users\luvpreet.singh\Source\Repos\CRUD-demo\CoreDemo\obj\Debug\net6.0\CoreDemoAPI.csproj.CoreCompileInputs.cache
-C:\Users\luvpreet.singh\Source\Repos\CRUD-demo\CoreDemo\obj\Debug\net6.0\CoreDemoAPI.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\luvpreet.singh\Source\Repos\CRUD-demo\CoreDemo\obj\Debug\net6.0\CoreDemoAPI.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\luvpreet.singh\Source\Repos\CRUD-demo\CoreDemo\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\luvpreet.singh\Source\Repos\CRUD-demo\CoreDemo\obj\Debug\net6.0\staticwebassets.development.json

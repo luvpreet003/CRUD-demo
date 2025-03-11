@@ -15,7 +15,7 @@ namespace CoreDemoCore.Commands.Authentication
             _configuration = configuration;
         }
 
-        public string GenerateToken(string userId, string userName, List<string>? roles = null)
+        public string GenerateToken(string userId, string userName, string role)
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -25,15 +25,8 @@ namespace CoreDemoCore.Commands.Authentication
                 new Claim(JwtRegisteredClaimNames.Sub, userId),
                 new Claim(JwtRegisteredClaimNames.NameId, userName),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new Claim(JwtRegisteredClaimNames.Typ, role)
             };
-
-            if (roles != null)
-            {
-                foreach (var role in roles)
-                {
-                    claims.Add(new Claim(ClaimTypes.Role, role));
-                }
-            }
 
             var token = new JwtSecurityToken(
                 issuer: _configuration["Jwt:Issuer"],

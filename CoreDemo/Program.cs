@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Security.Claims;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -45,6 +46,7 @@ builder.Services.AddSwaggerGen(opt =>
         }
     });
 });
+
 builder.Services.RegisterServices();
 builder.Services.AddAuthentication(opt =>
 {
@@ -53,7 +55,7 @@ builder.Services.AddAuthentication(opt =>
     opt.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
 }).AddJwtBearer(opt =>
 {
-    opt.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+    opt.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuer = true,
         ValidateAudience = true,
@@ -61,11 +63,33 @@ builder.Services.AddAuthentication(opt =>
         ValidateIssuerSigningKey = true,
         ValidIssuer = builder.Configuration["Jwt:Issuer"],
         ValidAudience = builder.Configuration["Jwt:Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])),
+        RoleClaimType = ClaimTypes.Role
+    };
+
+    opt.Events = new JwtBearerEvents
+    {
+        OnForbidden = async context =>
+        {
+            context.Response.StatusCode = 403;
+            context.Response.ContentType = "application/json";
+
+            var response = new
+            {
+                status = 403,
+                message = "You do not have permission to access this resourcse"
+            };
+
+            await context.Response.WriteAsJsonAsync(response);
+        }
     };
 });
 
-builder.Services.AddAuthorization();
+builder.Services.AddAuthorization(opt =>
+{
+    opt.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin"));
+    opt.AddPolicy("AdminOrUser", policy => policy.RequireRole("Admin", "User"));
+});
 
 var app = builder.Build();
 

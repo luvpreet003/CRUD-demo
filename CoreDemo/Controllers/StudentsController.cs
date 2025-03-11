@@ -17,8 +17,10 @@ namespace CoreDemoAPI.Controllers
         {
             _studentService = studentService;
         }
+
         // GET: api/<StudentsController>
         [HttpGet]
+        [Authorize(Policy = "AdminOrUser")]
         public List<Students> GetStudents([FromServices] IStudentService studentService)
         {
             var studentData = studentService.GetStudents();
@@ -27,6 +29,7 @@ namespace CoreDemoAPI.Controllers
 
         // GET api/<StudentsController>/5
         [HttpGet("{id}")]
+        [Authorize(Roles = "Admin,User")] //another way of authorizing
         public Students GetStudentById(int id, [FromServices] IStudentService studentService)
         {
             var result = studentService.GetStudentById(id);
@@ -35,6 +38,7 @@ namespace CoreDemoAPI.Controllers
 
         // POST api/<StudentsController>
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public string PostStudent([FromBody] Students student, [FromServices] IStudentService studentService)
         {
             var coreObj = new CoreDemoCore.Domain.Students(student);
@@ -44,6 +48,7 @@ namespace CoreDemoAPI.Controllers
 
         // PUT api/<StudentsController>/5
         [HttpPut]
+        [Authorize(Policy ="AdminOnly")]
         public string PutStudent([FromBody] Students student, [FromServices] IStudentService studentService)
         {
             var coreObj = new CoreDemoCore.Domain.Students(student);
@@ -53,6 +58,7 @@ namespace CoreDemoAPI.Controllers
 
         // DELETE api/<StudentsController>/5
         [HttpDelete("{id}")]
+        [Authorize(Policy = "AdminOnly")]
         public string DeleteStudent(int id, [FromServices] IStudentService studentService)
         {
             var result = studentService.DeleteStudent(id);
