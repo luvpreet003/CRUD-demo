@@ -20,9 +20,9 @@ builder.Services.AddDbContext<ApiDbContext>(opt =>
 
 builder.Services.AddSwaggerGen(opt =>
 {
-    opt.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "API Name", Version = "v1" });
+    opt.SwaggerDoc("v1", new OpenApiInfo { Title = "LP's CRUD", Version = "v1" });
 
-    opt.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+    opt.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
         Name = "Authorization",
